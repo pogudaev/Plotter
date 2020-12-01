@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/style/qss">
+        <file>mainStyle.qss</file>
+        <file>Head.qss</file>
+    </qresource>
+    <qresource prefix="/style/image">
+        <file>arrow-down.png</file>
+        <file>arrow-left.png</file>
+        <file>arrow-right.png</file>
+        <file>arrow-up.png</file>
+        <file>handle-h.png</file>
+        <file>handle-v.png</file>
+        <file>Exit.png</file>
+    </qresource>
+    <qresource prefix="/help/html">
+        <file>index.html</file>
+    </qresource>
+</RCC>

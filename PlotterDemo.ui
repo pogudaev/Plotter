@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PlotterDemo</class>
+ <widget class="QWidget" name="PlotterDemo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Plotter Demonstration</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>591</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="Head" name="head" native="true">
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget#head{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 189, 100), stop:1 rgba(0,0,10,100));
+	border: 1px solid #a0a0b0;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	min-height: 40px;
+	max-height:40px;
+}
+
+QWidget#head:hover {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 189, 110), stop:1 rgba(0, 0, 255, 110));
+}
+</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>571</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="headLayout">
+        <item>
+         <widget class="QLabel" name="headLabel">
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: #ffffff;</string>
+          </property>
+          <property name="text">
+           <string>Plotter Demonstration</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="exitButton">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">.QPushButton {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 30, 30, 160), stop:0.5 rgba(30,15,15,160), stop:0.51 rgba(5, 0, 0, 160), stop:1 rgba(30,0,0,160));
+	border: 1px solid #a0a0b0;
+	border-radius: 5px;
+	image: url(:/style/image/Exit.png);
+	min-height: 25px;
+	min-width: 35px;
+}
+
+QPushButton:pressed {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 50, 50, 200), stop:1 rgba(60,20,20,200));
+	margin: 1px 0px 1px 0px;
+}
+
+QPushButton::hover {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 30, 30, 170), stop:1 rgba(40,10,10,170));
+}
+
+
+
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="substrate" native="true">
+      <property name="styleSheet">
+       <string notr="true">
+.QWidget#substrate {
+	background-color: rgba(174, 185, 255, 100);
+	border: 1px solid rgb(68, 51, 255);
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+/*
+
+QTabWidget::pane {
+	border-radius: 10px;
+}
+
+
+QTabWidgetQWidget {
+	border-radius: 10px;
+	background: rgb(190, 200, 220);
+	border: 1px solid #303070;
+}
+
+QTabBar::tab {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    padding: 5px 15px 3px 15px;
+	border-bottom: 2px solid #303070;
+}
+QTabBar::tab:hover {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,   stop: 0 #fffaff, stop: 0.5 #fff0c0,  stop: 0.51 #fff0c0, stop: 1.0 #d0d9f0);
+}
+
+
+QTabBar::tab:selected {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.5 #f4f4ff, stop: 0.51 #e7e7ff, stop: 1.0 #d0d9f0);
+	border-bottom: solid 0px;
+}
+
+
+QPushButton {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.5 #f4f4ff, stop: 0.51 #e7e7ff, stop: 1.0 #d0d9f0);
+	border: 1px solid rgb(85, 85, 255);
+	border-radius: 10px;
+	min-height: 20px;
+}
+
+QPushButton:pressed {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e0e0ef, stop: 0.5 #e4e4ef, stop: 0.51 #d7d7ef, stop: 1.0 #b0b9e0);
+	margin: 1px 0px 1px 0px;
+}
+
+QPushButton:hover {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,   stop: 0 #fffaff, stop: 0.5 #fff0c0,  stop: 0.51 #fff0c0, stop: 1.0 #d0d9f0);
+}
+
+QLabel {
+    border: 0px;
+}
+
+QComboBox
+{
+  margin: 0px;
+  padding: 4px;
+  border: 2px solid #303070;
+  background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 132, 255, 255), stop:1 rgba(255, 255, 255, 255));
+  text-align: center;
+}
+
+QComboBox::drop-down
+ {
+    width: 32px;
+    height: 45px;
+    border: 0px;
+ }
+
+QComboBox::down-arrow {
+     border: 0px;
+ }
+
+QScrollBar:horizontal {
+    margin: 0px 20px 0px 20px;
+}
+
+QScrollBar:vertical {
+    margin: 20px 0px 20px 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0f4, stop: 0.5 #ededef, stop: 0.51 #d3d9db, stop: 1.0 #80a0b0);
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #90a0e0, stop:1.0 #303070);
+    image: url(:/style/image/handle-h.png);
+    min-width: 20px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #f0f0f4, stop: 0.5 #ededef, stop: 0.51 #d3d9db, stop: 1.0 #80a0b0);
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #90a0e0, stop:1.0 #303070);
+    image: url(:/style/image/handle-v.png);
+    min-height: 20px;
+}
+
+QScrollBar::add-page {
+    background-color: #8090d0;
+}
+
+
+QScrollBar::sub-page {
+    background-color: #8090d0;
+}
+
+QScrollBar::add-line {
+    background-color: #8090d0;
+}
+
+QScrollBar::sub-line {
+    background-color: #8090d0;
+}
+
+QScrollBar::add-line:horizontal {
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:left-arrow:horizontal {
+     image: url(:/style/image/arrow-left.png);
+}
+QScrollBar:right-arrow:horizontal {
+     image: url(:/style/image/arrow-right.png);
+}
+
+QScrollBar:up-arrow:vertical {
+     image: url(:/style/image/arrow-up.png);
+}
+QScrollBar:down-arrow:vertical {
+     image: url(:/style/image/arrow-down.png);
+}
+*/</string>
+      </property>
+      <widget class="QWidget" name="horizontalLayoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>571</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
+        </property>
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="3">
+         <widget class="ResizeButton" name="resizeButton" native="true">
+          <property name="cursor">
+           <cursorShape>SizeFDiagCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	border-radius: 6px ;
+	border: 1px solidrgb(85, 85, 255); 
+	background: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.40 rgba(0, 150, 255, 0));
+	margin: -10px 6px 6px -10px;
+}
+
+QWidget:hover {
+	background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(0,0,0, 255), stop:0.5 rgba(40,10,10,0));
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="1">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="1">
+         <widget class="QTabWidget" name="pages">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+QWidget{
+	color: #000000;
+	border-radius: 1px;
+	background: rgb(221, 221, 255);
+	font: 12px;
+}
+
+QWidget#helpPage{
+	color: #000000;
+	border-radius: 1px;
+	border: 2px solid #303070;
+	background: rgb(221, 221, 255);
+	font: 12px;
+}
+
+QTabWidget::pane {
+	border-radius: 10px;
+}
+
+
+QTabWidgetQWidget {
+	border-radius: 10px;
+	background: rgb(190, 200, 220);
+	border: 1px solid #303070;
+}
+
+QTabBar::tab {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    padding: 5px 15px 3px 15px;
+	border-bottom: 2px solid #303070;
+}
+QTabBar::tab:hover {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,   stop: 0 #fffaff, stop: 0.5 #fff0c0,  stop: 0.51 #fff0c0, stop: 1.0 #d0d9f0);
+}
+
+
+QTabBar::tab:selected {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.5 #f4f4ff, stop: 0.51 #e7e7ff, stop: 1.0 #d0d9f0);
+	border-bottom: solid 0px;
+}
+
+
+QPushButton {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.5 #f4f4ff, stop: 0.51 #e7e7ff, stop: 1.0 #d0d9f0);
+	border: 1px solid rgb(85, 85, 255);
+	border-radius: 10px;
+	min-height: 20px;
+}
+
+QPushButton:pressed {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e0e0ef, stop: 0.5 #e4e4ef, stop: 0.51 #d7d7ef, stop: 1.0 #b0b9e0);
+	margin: 1px 0px 1px 0px;
+}
+
+QPushButton:hover {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,   stop: 0 #fffaff, stop: 0.5 #fff0c0,  stop: 0.51 #fff0c0, stop: 1.0 #d0d9f0);
+}
+
+QLabel {
+    border: 0px;
+}
+
+QComboBox
+{
+  margin: 0px;
+  padding: 4px;
+  border: 2px solid #303070;
+  background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 132, 255, 255), stop:1 rgba(255, 255, 255, 255));
+  text-align: center;
+}
+
+QComboBox::drop-down
+ {
+    width: 32px;
+    height: 45px;
+    border: 0px;
+ }
+
+QComboBox::down-arrow {
+     border: 0px;
+ }
+
+QScrollBar:horizontal {
+    margin: 0px 20px 0px 20px;
+}
+
+QScrollBar:vertical {
+    margin: 20px 0px 20px 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0f4, stop: 0.5 #ededef, stop: 0.51 #d3d9db, stop: 1.0 #80a0b0);
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #90a0e0, stop:1.0 #303070);
+    image: url(:/style/image/handle-h.png);
+    min-width: 20px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #f0f0f4, stop: 0.5 #ededef, stop: 0.51 #d3d9db, stop: 1.0 #80a0b0);
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #90a0e0, stop:1.0 #303070);
+    image: url(:/style/image/handle-v.png);
+    min-height: 20px;
+}
+
+QScrollBar::add-page {
+    background-color: #8090d0;
+}
+
+
+QScrollBar::sub-page {
+    background-color: #8090d0;
+}
+
+QScrollBar::add-line {
+    background-color: #8090d0;
+}
+
+QScrollBar::sub-line {
+    background-color: #8090d0;
+}
+
+QScrollBar::add-line:horizontal {
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:left-arrow:horizontal {
+     image: url(:/style/image/arrow-left.png);
+}
+QScrollBar:right-arrow:horizontal {
+     image: url(:/style/image/arrow-right.png);
+}
+
+QScrollBar:up-arrow:vertical {
+     image: url(:/style/image/arrow-up.png);
+}
+QScrollBar:down-arrow:vertical {
+     image: url(:/style/image/arrow-down.png);
+}
+
+
+QTabWidget::pane {
+	border-radius: 10px;
+}
+
+
+QTabWidgetQWidget {
+	border-radius: 10px;
+	background: rgb(190, 200, 220);
+	border: 1px solid #303070;
+}
+
+QTabBar::tab {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    padding: 5px 15px 3px 15px;
+	border-bottom: 2px solid #303070;
+}
+QTabBar::tab:hover {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,   stop: 0 #fffaff, stop: 0.5 #fff0c0,  stop: 0.51 #fff0c0, stop: 1.0 #d0d9f0);
+}
+
+
+QTabBar::tab:selected {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.5 #f4f4ff, stop: 0.51 #e7e7ff, stop: 1.0 #d0d9f0);
+	border-bottom: solid 0px;
+}
+
+
+QPushButton {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0ff, stop: 0.5 #f4f4ff, stop: 0.51 #e7e7ff, stop: 1.0 #d0d9f0);
+	border: 1px solid rgb(85, 85, 255);
+	border-radius: 10px;
+}
+
+QPushButton:pressed {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e0e0ef, stop: 0.5 #e4e4ef, stop: 0.51 #d7d7ef, stop: 1.0 #b0b9e0);
+	margin: 1px 0px 1px 0px;
+}
+
+QPushButton:hover {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,   stop: 0 #fffaff, stop: 0.5 #fff0c0,  stop: 0.51 #fff0c0, stop: 1.0 #d0d9f0);
+}
+
+QLabel {
+    border: 0px;
+}
+
+QComboBox
+{
+  margin: 0px;
+  padding: 4px;
+  border: 2px solid #303070;
+  background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 132, 255, 255), stop:1 rgba(255, 255, 255, 255));
+  text-align: center;
+}
+
+QComboBox::drop-down
+ {
+    width: 32px;
+    height: 45px;
+    border: 0px;
+ }
+
+QComboBox::down-arrow {
+     border: 0px;
+ }
+
+QScrollBar:horizontal {
+    margin: 0px 20px 0px 20px;
+}
+
+QScrollBar:vertical {
+    margin: 20px 0px 20px 0px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0f0f4, stop: 0.5 #ededef, stop: 0.51 #d3d9db, stop: 1.0 #80a0b0);
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #90a0e0, stop:1.0 #303070);
+    image: url(:/style/image/handle-h.png);
+    min-width: 20px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #f0f0f4, stop: 0.5 #ededef, stop: 0.51 #d3d9db, stop: 1.0 #80a0b0);
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #90a0e0, stop:1.0 #303070);
+    image: url(:/style/image/handle-v.png);
+    min-height: 20px;
+}
+
+QScrollBar::add-page {
+    background-color: #8090d0;
+}
+
+
+QScrollBar::sub-page {
+    background-color: #8090d0;
+}
+
+QScrollBar::add-line {
+    background-color: #8090d0;
+}
+
+QScrollBar::sub-line {
+    background-color: #8090d0;
+}
+
+QScrollBar::add-line:horizontal {
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar:left-arrow:horizontal {
+     image: url(:/style/image/arrow-left.png);
+}
+QScrollBar:right-arrow:horizontal {
+     image: url(:/style/image/arrow-right.png);
+}
+
+QScrollBar:up-arrow:vertical {
+     image: url(:/style/image/arrow-down.png);
+}
+QScrollBar:down-arrow:vertical {
+	image: url(:/style/image/arrow-up.png);
+}
+
+</string>
+          </property>
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="demo1Page">
+           <attribute name="title">
+            <string>Построение по точкам</string>
+           </attribute>
+           <widget class="QWidget" name="horizontalLayoutWidget_4">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>501</width>
+              <height>241</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="demo1Layout">
+             <item>
+              <widget class="PPlot" name="plot" native="true">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>300</width>
+                 <height>200</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20002</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>CrossCursor</cursorShape>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QScrollArea" name="scrollSettingArea">
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="SettingPanel" name="settingWidget">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>193</width>
+                  <height>239</height>
+                 </rect>
+                </property>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="demo2Page">
+           <attribute name="title">
+            <string>Динамическое построение</string>
+           </attribute>
+           <widget class="QWidget" name="horizontalLayoutWidget_3">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>10</y>
+              <width>461</width>
+              <height>263</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="dynamicLayout">
+             <item>
+              <widget class="PPlot" name="dynamicPlot" native="true"/>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="sizeConstraint">
+                <enum>QLayout::SetMinimumSize</enum>
+               </property>
+               <item>
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_2">
+                 <property name="text">
+                  <string>Сенсор:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="Sensor" name="sensor" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>200</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Head</class>
+   <extends>QWidget</extends>
+   <header>Head.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ResizeButton</class>
+   <extends>QWidget</extends>
+   <header>ResizeButton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SettingPanel</class>
+   <extends>QWidget</extends>
+   <header>SettingPanel.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PPlot</class>
+   <extends>QWidget</extends>
+   <header>PPlot.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Sensor</class>
+   <extends>QWidget</extends>
+   <header>Sensor.h</header>
+   <container>1</container>
+   <slots>
+    <signal>newData(qreal,qreal,qreal)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
